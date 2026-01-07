@@ -323,6 +323,10 @@ a {
     width: 370px;
 }
 
+.portfolio-header {
+    display: none;
+}
+
 .portfolio-text {
     padding: 24px;
 }
