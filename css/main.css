@@ -43,6 +43,7 @@
   --color-bg-team: #F5F4FA;
   --color-link-footer: #FFFFFF99;
   --color-portfolio-back: #EEEEEE;
+  --color-dropdown: #333333;
 }
 
 html {
@@ -100,6 +101,7 @@ a {
 
 .header-nav {
     display: flex;
+    align-items: center;
     column-gap: 50px;
     margin-left: 95px;
 }
@@ -114,16 +116,80 @@ a {
     transition: color 0.3s;
 }
 
+.menu-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 10px 0 2px;
+  display: none;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  min-width: 150px;
+}
+
+.menu-item:hover .submenu {
+  display: block;
+}
+
+.submenu-item {
+  position: relative;
+}
+
+.submenu-left {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  padding: 5px;
+  display: none;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  min-width: 150px;
+  z-index: 100;
+}
+
+.submenu-item:hover .submenu-left {
+  display: block;
+}
+
+.submenu a, .submenu-left a {
+  display: block;
+  padding: 8px 10px;
+  color: var(--color-dropdown);
+  text-decoration: none;
+}
+
+.submenu a:hover, .submenu-left a:hover {
+  background-color: var(--color-bg-team);
+  color: var(--color-primary);
+}
+
+
 /* HERO SECTION */
 
 .hero {
-    background-color: var(--color-bg-hero);
+    background-image:
+    linear-gradient(
+    rgba(47,48,58,0.4),
+    rgba(47,48,58,0.4)),
+    url('../image/Img-hero.jpg');
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
     min-height: 600px;
     align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-title {
@@ -179,6 +245,36 @@ a {
     max-width: 252px;
     word-wrap: break-word;
 }
+
+
+.feature-icon {
+  width: 100%;
+  height: 120px;
+  background-color: var(--color-bg-team);
+  border-radius: 4px;
+  margin-bottom: 30px;
+  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70px;
+}
+
+.icon-antenna {
+  background-image: url("/image/antenna.svg");
+}
+
+.icon-clock {
+  background-image: url("/image/clock.svg");
+}
+
+.icon-diagram {
+  background-image: url("/image/diagram.svg");
+}
+
+.icon-astronaut {
+  background-image: url("/image/astronaut.svg");
+}
+
 
 /* WORK */
 .works {
@@ -333,8 +429,12 @@ a {
 .portfolio-img {
     position: relative;
     overflow: hidden;
-    width: 100%;
     height: 294px;
+}
+
+.portfolio-img img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
