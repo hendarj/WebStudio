@@ -133,6 +133,7 @@ a {
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   min-width: 150px;
+  z-index: 100;
 }
 
 .menu-item:hover .submenu {
@@ -153,7 +154,6 @@ a {
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   min-width: 150px;
-  z-index: 100;
 }
 
 .submenu-item:hover .submenu-left {
@@ -176,20 +176,29 @@ a {
 /* HERO SECTION */
 
 .hero {
-    background-image:
-    linear-gradient(
-    rgba(47,48,58,0.4),
-    rgba(47,48,58,0.4)),
-    url('../image/Img-hero.jpg');
+    position: relative;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
     min-height: 600px;
     align-items: center;
+
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+    linear-gradient( rgba(47, 48, 58, 0.4)),url(../image/Img-hero.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+}
+
+.hero-content {
+    position: relative;
 }
 
 .hero-title {
@@ -222,20 +231,26 @@ a {
 .features {
     padding: 94px 0;
 }
+
 .features-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
 }
+
 .feature-card {
+    position: relative;
     flex: 1 1 22%;
     text-align: justify;
 }
+
+
 .feature-title {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 10px;
+    margin-top: 150px;
     letter-spacing: 1px;
 }
 .feature-subtitle {
@@ -247,32 +262,29 @@ a {
 }
 
 
-.feature-icon {
-  width: 100%;
-  height: 120px;
-  background-color: var(--color-bg-team);
-  border-radius: 4px;
-  margin-bottom: 30px;
-  
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 70px;
+.feature-card::before {
+    content: "";
+    position: absolute;
+    height: 120px;
+    width: 270px;
+    background-color: var(--color-bg-team);
+    border-radius: 4px;
+
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.icon-antenna {
-  background-image: url("/image/antenna.svg");
+.features-wrapper .feature-card:nth-child(1)::before {
+    background-image: url("../image/antenna.svg");
 }
-
-.icon-clock {
-  background-image: url("/image/clock.svg");
+.features-wrapper .feature-card:nth-child(2)::before {
+    background-image: url("../image/clock.svg");
 }
-
-.icon-diagram {
-  background-image: url("/image/diagram.svg");
+.features-wrapper .feature-card:nth-child(3)::before {
+    background-image: url("../image/diagram.svg");
 }
-
-.icon-astronaut {
-  background-image: url("/image/astronaut.svg");
+.features-wrapper .feature-card:nth-child(4)::before {
+    background-image: url("../image/astronaut.svg");
 }
 
 
