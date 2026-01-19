@@ -395,7 +395,7 @@ a {
 
 .customers {
   padding: 94px 0;
-  background-color: var(--color-bg-customers, #fff);
+  background-color: var(--color-bg-customers);
   text-align: center;
 }
 
@@ -433,7 +433,7 @@ a {
 }
 
 .customers-link:hover {
-    border-color: var(--color-primary, #007bff);
+    border-color: var(--color-primary);
 }
 
 .customers-icon {
