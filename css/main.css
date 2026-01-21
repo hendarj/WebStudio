@@ -129,16 +129,24 @@ a {
   top: 100%;
   left: 0;
   padding: 10px 0 2px;
-  display: none;
+
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   min-width: 150px;
   z-index: 100;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  
+  transition: opacity 250ms ease, transform 250ms ease;
 }
 
 .menu-item:hover .submenu {
-  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .submenu-item {
@@ -150,15 +158,23 @@ a {
   top: 0;
   right: 100%;
   padding: 5px;
-  display: none;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10px);
+
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   min-width: 150px;
+
+  transition: opacity 250ms ease, transform 250ms ease;
 }
 
 .submenu-item:hover .submenu-left {
-  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
 .submenu a, .submenu-left a {
@@ -547,7 +563,7 @@ a {
     cursor: pointer;
     font-weight: 500;
     color: var(--color-text-dark);
-    transition: all 0.3s;
+    transition: background-color 250ms ease, color 250ms ease;
     background-color: var(--color-bg-team);
     text-align: center;
 }
@@ -614,11 +630,13 @@ a {
     padding: 24px;
 
     opacity: 0;
-    transition: opacity 250ms ease;
+    transform: translateY(100%);
+    transition: opacity 250ms ease, transform 250ms ease;
 }
 
 .portfolio-item:hover .portfolio-overlay {
     opacity: 1;
+    transform: translateY(0);
 }
 
 .portfolio-overlay p {
